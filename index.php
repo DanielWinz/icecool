@@ -19,6 +19,9 @@
     
     <!-- eigene JavaScript Dateien -->
     <script src="js/services.js"></script>
+    
+    <!-- eigene CSS Dateien -->
+    <link href="css/einkaufszettel.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -26,6 +29,9 @@
     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
+    
+    <!-- eigene Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
@@ -116,6 +122,10 @@
           
         </div>
       </div>
+      <span class="fa-stack fa-4x" style="position: relative; top:50%; transform:translateY(-50%); float:right;">
+              <i class="fa fa-circle fa-stack-2x text-primary"></i>
+              <i class="fa fa-list fa-stack-1x fa-inverse"></i>
+      </span>
     </section>
 
     <!-- Portfolio Grid -->
@@ -709,50 +719,72 @@
     
     <!-- Einkaufszettel schreiben -->
     <div class="modal fade" id="servicesEinkaufszettel">
-  	  <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Einkaufszettel</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <div class="row">
-  			  <div class="col-lg-6">
-    			<div class="input-group">
-      			  <span class="input-group-addon">
-        		  <input type="checkbox" aria-label="Checkbox for following text input" id="einkaufszettelCheckbox">
-      			  </span>
-      			  <input type="text" class="form-control" aria-label="Text input with checkbox" id="einkaufszettelInput">
-    		    </div>
-  			  </div>
-  			  <div class="col-lg-3 col-md-3">
-  			  	<div class="input-group">
-  			  		<span class="input-group-addon">#</span>
-                    <input type="number" class="form-control" aria-describedby="basic-addon1">
-  			  	</div>
-  			  </div>
-  			  <div class="col-lg-3 col-md-3">
-  			  	<div class="input-group">
-  			  		<input type="number" class="form-control" aria-describedby="basic-addon1">
-  			  		<span class="input-group-addon">g</span>
-  			  	</div>
-  			  </div>
-            </div>
-            <div class="row">
-            	<ul class="list-group">
-            		<li>test</li>
-				</ul>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Speichern</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Verwerfen</button>
-          </div>
-        </div>
-      </div>
-    </div>
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Einkaufszettel schreiben</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body" >
+			  <div class="receipt" style="padding-top: 0px; margin-top: 0px;">
+			    <ul class="shopping-list">
+			      <li class="confirmedNote">
+			        <div class="row note">
+			          <div class="col-md-2 col-2">
+			          	<div class="checkbox">
+  							<input type="checkbox" value="" class="checkNoteItem">
+						</div>
+			          </div>
+			          <div class="col-md-6 col-6 item">Kartoffeln</div>
+			          <div class="col-md-3 col-3 amount">1 kg</div>
+			          <div class="col-md-1 col-1 deleteNote">✗</div>
+			        </div>
+			      </li>
+			      <li class="confirmedNote">
+			        <div class="row note" >
+			        	<div class="col-md-2 col-2">
+			          		<div class="checkbox">
+  								<input type="checkbox" value="" class="checkNoteItem">
+						</div>
+			          </div>
+			          <div class="col-md-6 col-6 item">Bananen</div>
+			          <div class="col-md-3 col-3 amount">3 stk</div>
+			          <div class="col-md-1 col-1 deleteNote">✗</div>
+			        </div>
+			      </li>
+			      <li class="new">
+			        <div class="row">
+			          <div class="col-md-6 col-6 item">
+			            <input type="text" placeholder="Was?" class="form-control shopping-note-input" id="item">
+			          </div>
+			          <div class="col-md-6 col-6 amount">
+			            <form>
+			            	<div class="input-group">
+  								 <input type="text" placeholder="Menge?" class="form-control shopping-note-input" id="amount">
+  								 <select style="border: none;" id='unit'>
+  								 	<option value="g">g</option>
+  								 	<option value="Stk">Stk</option>
+  								 </select>
+  								 <div class="shpping-note-button btn btn-primary" aria-hidden="true" id="addNote">
+  								 	<span class="fa fa-check " aria-hidden="true" style="text-align: center; line-height: 50%"></i>
+  								 </div>
+							</div>
+			            </form>
+			          </div>
+			        </div>
+			      </li>
+			    </ul>
+			  </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary">Einkaufszettel anlegen</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>

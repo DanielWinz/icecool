@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en" ng-app="dcka">
+
+<head>
+  <meta charset="utf-8">
+  <title>DCKA14 Einkaufszettel</title>
+  <link rel="stylesheet" href="css/bootstrap.css" />
+  <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/app.css" />
+  <!-- Vendors -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/sweetalert/sweetalert2.min.css" rel="stylesheet">
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/sweetalert/sweetalert2.min.js"></script>
+    <script src="vendor/taggle/taggle.js"></script>
+    
+</head>
+
+<body>
+  <h1 class="title">Einkaufszettel</h1>
+  <div class="receipt">
+    <ul class="shopping-list">
+      <li>
+        <div class="row note">
+          <div class="col-md-8 item">Kartoffeln</div>
+          <div class="col-md-3 amount">1 kg</div>
+          <div class="col-md-1 delete">✗</div>
+        </div>
+        <div class="row edit">
+          <div class="col-md-8 item">
+            <input type="text" placeholder="Was?" class="form-control input-lg">
+          </div>
+          <div class="col-md-4 amount">
+              <input type="text" placeholder="Wieviel?" class="form-control input-lg">
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="row note" ng-dblclick="edit(note)">
+          <div class="col-md-8 item">Bananen</div>
+          <div class="col-md-3 amount">3 stk</div>
+          <div class="col-md-1 delete">✗</div>
+        </div>
+        <div class="row edit">
+          <div class="col-md-8 item">
+            <input type="text" placeholder="Was?" class="form-control input-lg">
+          </div>
+          <div class="col-md-4 amount">
+              <input type="text" placeholder="Wieviel?" class="form-control input-lg">
+          </div>
+        </div>
+      </li>
+      <li class="new">
+        <div class="row">
+          <div class="col-md-8 item">
+            <input type="text" placeholder="Was?" class="form-control input-lg">
+          </div>
+          <div class="col-md-4 amount">
+            <form>
+              <input type="text" placeholder="Wieviel?" class="form-control input-lg">
+            </form>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
+</body>
+<style>
+
+
+h1.title {
+	position: absolute;
+	left: 0;
+	right: 0;
+	text-align: center;
+	color: #333;
+	font-size: 30pt;
+	top: 100px;
+}
+
+.receipt {
+	width: 500px;
+	margin: 200px auto;
+}
+
+
+
+.shopping-list {
+	list-style-type: none;
+	background: white;
+	padding: 0;
+}
+
+.shopping-list li {
+	padding: 20px 0;
+	font-size: 20pt;
+	border-bottom: 1px solid #eee;
+}
+
+.shopping-list li .row {
+	padding-left: 20px;
+}
+
+.shopping-list li.new .row {
+	padding-left: 0;
+}
+
+.shopping-list li.new {
+	padding: 0;
+	height: 79px;
+}
+
+.input-lg {
+	height: 79px;
+	border: none;
+	border-radius: 0;
+	font-size: 20pt;
+	padding: 0 20px;
+}
+
+.shopping-list li.new .row .col-md-8,
+.editing .shopping-list li .row .col-md-8 {
+	padding-right: 0;
+}
+
+.shopping-list li.new .row .col-md-4,
+.editing .shopping-list li .row .col-md-8 {
+	padding-left: 0;
+	border-left: 1px solid #eee;
+}
+
+.delete {
+	color: #bbb;
+	left: -25px;
+	cursor: pointer;
+}
+
+.delete:hover {
+	color: #333;
+}
+
+.delete:focus, .delete:active {
+	color: black;
+}
+
+.edit {
+	display: none;
+}
+
+.shopping-list li.editing {
+	padding: 0;
+}
+
+.editing .edit {
+	display: block;
+}
+
+.editing .note {
+	display: none;
+}
+</style>
+</html>

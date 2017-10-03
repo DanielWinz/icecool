@@ -1,8 +1,15 @@
 /**
- * @author Daniel
+ *  The three service functionalities are provided in this file.
+ *  1) APPLY PURCHASE
+ * 	2) WRITE SHOPPING LIST
+ * 	3) SEE STORED ITEMS
  */
 
 $(document).ready(function(){
+	
+	// =============================================================
+    // 1) APPLY PURCHASE
+    // =============================================================
 	
 	$("#addEinkauf").click(function(){
 		
@@ -41,6 +48,10 @@ $(document).ready(function(){
 	
 	});
 	
+	// =============================================================
+    // 2) WRITE SHOPPING LIST
+    // =============================================================
+    
 	$("#addEinkaufszettel").click(function(){
 		
 		$("#servicesEinkaufszettel").modal();
@@ -57,7 +68,7 @@ $(document).ready(function(){
 		
 		//push them to DB
 		$.ajax({
-						url: 'einkaufszettel.php',
+						url: '../php/einkaufszettel.php',
 						data: {
 							   item			  : item, 
 							   amount		  : amount,

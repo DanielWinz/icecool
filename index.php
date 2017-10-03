@@ -13,7 +13,6 @@
     <!-- Vendors -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/sweetalert/sweetalert2.min.css" rel="stylesheet">
-    <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/sweetalert/sweetalert2.min.js"></script>
     <script src="vendor/taggle/taggle.js"></script>
     
@@ -716,6 +715,11 @@
         </div>
       </div>
     </div>
+    
+    <!-- Service Modals -->
+    
+    <!-- Einkauf anlegen -->
+    
     
     <!-- Einkaufszettel schreiben -->
     <div class="modal fade" id="servicesEinkaufszettel">

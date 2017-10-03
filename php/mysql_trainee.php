@@ -1,6 +1,6 @@
 <?php
 class Trainee {
-	private static $_db_username 		= "localhost";
+	private static $_db_username 		= "root";
 	private static $_db_password 		= "";
 	private static $_db_host 			= "localhost";
 	private static $_db_name			= "icecool_trainee";

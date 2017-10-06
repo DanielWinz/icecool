@@ -31,6 +31,13 @@ class DB {
 		}
 	}
 	
+	function getAllNotes() {
+		$stmt = self::$_db->prepare("SELECT * FROM einkaufszettel ORDER BY id DESC");	
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_BOTH);
+		
+	}
+	
 
 }
 ?>

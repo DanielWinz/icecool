@@ -4,6 +4,8 @@
  * 	2) WRITE SHOPPING LIST
  * 	   a) FETCH SHOPPING LIST
  * 	   b) WRITE SHOPPING NOTE
+ *     c) DELETE SHOPPING ITEM
+ * 	   d) HANDLING DONE PROPERTY
  * 	3) SEE STORED ITEMS
  */
 
@@ -66,7 +68,6 @@ $(document).ready(function(){
         success: function(s){
         
         	notes = jQuery.parseJSON(s);
-        	console.log(notes);
         	$.each(notes, function(i,prop){
         		// checked="false" is not possible => changing prop erledigt to "checked" / ""
         		if(prop.erledigt == false) {
@@ -77,9 +78,9 @@ $(document).ready(function(){
         		}
         		
         		
-        		$('.shopping-list').prepend(  '<li class="confirmedNote">'+
+        		$('.shopping-list').prepend(  '<li class="confirmedNote"  id='+prop.id+'>'+
 													  '<div class="row note">'+
-													  '<div class="col-md-2 col-2" id='+prop.id+'>'+
+													  '<div class="col-md-2 col-2">'+
 													  '<div class="checkbox">'+
 													  '<input type="checkbox" value="" class="checkNoteItem" '+prop.erledigt+'>'+
 													  '</div>'+
@@ -95,7 +96,11 @@ $(document).ready(function(){
         		
         	});
         	
-        }
+       },
+       error: function(e){		    			
+				swal('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
+		}
+       
 	});
 		$('.shopping-list').find('.checkNoteItem:checked').parents('.note').children('.item').addClass('noteItemDone');
 		$("#servicesEinkaufszettel").modal();
@@ -162,7 +167,6 @@ $(document).ready(function(){
 							
 						},
 						error: function(e){		    			
-							
 							swal('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
 						}
 					});
@@ -170,12 +174,31 @@ $(document).ready(function(){
 	
 	});
 	
-	//delegated event with .on handler for dynamic content
+	//c) DELETE SHOPPING ITEM
+	//delegated event with .on handler for dynamic content => deleting Item
 	$('.shopping-list').on('click','.deleteNote', function() {
-		$(this).parents('.confirmedNote').remove();
+		deleteId = $(this).parents('.confirmedNote').attr('id');
+		element = $(this);
+		$.ajax({
+			url: 'php/einkaufszettel.php',
+	        type: 'POST', 
+	        data: {
+	        		id: deleteId,
+	        		deleteItem : 1},
+	        async: false,
+	        success: function(s){
+	        	element.parents('.confirmedNote').fadeOut();
+	        },
+	        error: function(e){
+	        	swal('Es ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut.');
+	        }
+	  });
+        	
+		
 	});
 	
-	
+	//d) HANDLING DONE PROPERTY
+	// Eventhandler for adding done property
 	 $('.shopping-list').on('change', '.checkNoteItem', function() {
         if($(this).prop('checked') == true) {
             $(this).parents('.note ').children('.item').addClass('noteItemDone');

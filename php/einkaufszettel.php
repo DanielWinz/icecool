@@ -18,7 +18,7 @@ if(isset($_POST["insertNoteItem"]))
 if(isset($_POST["fetchAllNotes"]))
 {
 	$notes = array();
-	$query = $db->getAllNotes();
+	$query = $db->getShoppinglist();
 	foreach ($query as $fetch ) {
 		
 	
@@ -36,6 +36,12 @@ if(isset($_POST["fetchAllNotes"]))
     array_push($notes, $e);
 	}
 	echo json_encode($notes);
+}
+
+if(isset($_POST['deleteItem']))
+{
+	$deleteId = $_POST['id'];
+	$db->deleteNote($deleteId);
 }
 
 

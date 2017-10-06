@@ -20,12 +20,12 @@ class DB {
 		$stmt->bindParam(":name", $item);
 		$stmt->bindParam(":menge", $amount);
 		$stmt->bindParam(":einheit", $unit);
-		///$stmt->bindParam(":erledigt", 1);
+		
 		
 		
 		
 		if($stmt->execute()) {
-			return true;
+			return self::$_db->lastInsertId();
 		} else {
 			return false;
 		}

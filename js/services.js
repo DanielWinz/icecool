@@ -1,5 +1,6 @@
 /**
  *  The three service functionalities are provided in this file.
+ *  0) AJAX SETTING FOR LOADING INDICATOR
  *  1) APPLY PURCHASE
  * 	2) WRITE SHOPPING LIST
  * 	   a) FETCH SHOPPING LIST
@@ -8,6 +9,22 @@
  * 	   d) HANDLING DONE PROPERTY
  * 	3) SEE STORED ITEMS
  */
+
+// =============================================================
+// 0) AJAX SETTING FOR LOADING INDICATOR
+// =============================================================
+
+// invoked when sending ajax request
+$(document).ajaxSend(function () {
+    $(".loader").show();
+    $(".loader").parent().prop("disabled", true);
+});
+
+// invoked when sending ajax completed
+$(document).ajaxComplete(function () {
+    $(".loader").hide();
+    $(".loader").parent().prop("disabled", false);
+});
 
 $(document).ready(function(){
 	
@@ -126,38 +143,38 @@ $(document).ready(function(){
 							   insertNoteItem : 1
 							   },
 						type: 'POST',
-						success: function(response){
+						success: function(id){
 							//append new item to list
-								if(lastEntry.length == 0) {
-									$('.shopping-list').prepend(  '<li class="confirmedNote">'+
-													  '<div class="row note">'+
-													  '<div class="col-md-2 col-2">'+
-													  '<div class="checkbox">'+
-													  '<input type="checkbox" value="" class="checkNoteItem">'+
-													  '</div>'+
-													  '</div>'+
-										          	  '<div class="col-md-6 col-6 item">'+item+'</div>'+
-										          	  '<div class="col-md-3 col-3 amount">'+amount+' '+unit+'</div>'+
-										          	  '<div class="col-md-1 col-1 deleteNote">✗</div>'+
-										        	  '</div>'+
-										        	  '</li>'
-										        	  );
+							if(lastEntry.length == 0) {
+								$('.shopping-list').prepend(  '<li class="confirmedNote" id='+id+'>'+
+									 '<div class="row note">'+
+									 '<div class="col-md-2 col-2">'+
+									 '<div class="checkbox">'+
+									 '<input type="checkbox" value="" class="checkNoteItem">'+
+									 '</div>'+
+									 '</div>'+
+								     '<div class="col-md-6 col-6 item">'+item+'</div>'+
+								     '<div class="col-md-3 col-3 amount">'+amount+' '+unit+'</div>'+
+								     '<div class="col-md-1 col-1 deleteNote">✗</div>'+
+								     '</div>'+
+								     '</li>'
+								);
 								}
 								else{
 									
-									$(  '<li class="confirmedNote">'+
-													  '<div class="row note">'+
-													  '<div class="col-md-2 col-2">'+
-													  '<div class="checkbox">'+
-													  '<input type="checkbox" value="" class="checkNoteItem">'+
-													  '</div>'+
-													  '</div>'+
-										          	  '<div class="col-md-6 col-6 item">'+item+'</div>'+
-										          	  '<div class="col-md-3 col-3 amount">'+amount+' '+unit+'</div>'+
-										          	  '<div class="col-md-1 col-1 deleteNote">✗</div>'+
-										        	  '</div>'+
-										        	  '</li>'
-										        	   ).insertAfter(lastEntry);
+									$(  '<li class="confirmedNote" id='+id+'>'+
+									 '<div class="row note">'+
+									 '<div class="col-md-2 col-2">'+
+									 '<div class="checkbox">'+
+									 '<input type="checkbox" value="" class="checkNoteItem">'+
+									 '</div>'+
+									 '</div>'+
+									 '<div class="col-md-6 col-6 item">'+item+'</div>'+
+									 '<div class="col-md-3 col-3 amount">'+amount+' '+unit+'</div>'+
+									 '<div class="col-md-1 col-1 deleteNote">✗</div>'+
+									 '</div>'+
+								     '</li>'
+								     ).insertAfter(lastEntry);
 								}
 									
 								//clear Input

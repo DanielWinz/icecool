@@ -10,7 +10,8 @@ if(isset($_POST["insertNoteItem"]))
 	$amount = $_POST['amount'];
 	$unit 	= $_POST['unit'];
 	 
-	$db->insertNoteItem($item, $amount, $unit);
+	$return = $db->insertNoteItem($item, $amount, $unit);
+	echo $return;
 	
 }
 

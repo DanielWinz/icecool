@@ -14,7 +14,11 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/sweetalert/sweetalert2.min.css" rel="stylesheet">
     <script src="vendor/sweetalert/sweetalert2.min.js"></script>
-    <script src="vendor/taggle/taggle.js"></script>
+    
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     
     <!-- eigene JavaScript Dateien -->
     <script src="js/services.js"></script>
@@ -789,11 +793,6 @@
 	    </div>
 	  </div>
 	</div>
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>

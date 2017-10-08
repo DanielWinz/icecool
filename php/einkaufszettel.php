@@ -1,6 +1,15 @@
 <?php
+// =============================================================
+// Einkaufszettel.php
+// =============================================================
+
+//include required DB connection
 include('mysql.php');
+include('mysql_trainee.php');
+
+//create instances of the DB classes
 $db = new DB();
+$trainee = new Trainee(); 
 
 //create new note item
 if(isset($_POST["insertNoteItem"]))
@@ -11,11 +20,16 @@ if(isset($_POST["insertNoteItem"]))
 	$unit 	= $_POST['unit'];
 	 
 	$return = $db->insertNoteItem($item, $amount, $unit);
+	
+	//add Suggestion to trainee DB
+	$trainee->addSuggestion($item, $unit);
+	
+	//giving ID of created Element back to DOM
 	echo $return;
 	
 }
 
-//get all note items and parse them to $notes array
+//get all note items and parse them to $notes[] array
 if(isset($_POST["fetchAllNotes"]))
 {
 	$notes = array();

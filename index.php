@@ -18,8 +18,13 @@
     <!-- Vendors -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/sweetalert/sweetalert2.min.css" rel="stylesheet">
+    <link href="vendor/autocomplete/css/easy-autocomplete.css" rel="stylesheet">
+    <link href="vendor/autocomplete/css/easy-autocomplete.themes.css" rel="stylesheet">
+    
+    
     <script src="vendor/sweetalert/sweetalert2.min.js"></script>
     <script src="vendor/taggle/taggle.js"></script>
+    <script src="vendor/autocomplete/js/jquery.easy-autocomplete.js"></script>
     
     <!-- eigene JavaScript Dateien -->
     <script src="js/services.js"></script>

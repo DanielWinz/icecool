@@ -7,6 +7,7 @@
  * 	   b) WRITE SHOPPING NOTE
  *     c) DELETE SHOPPING ITEM
  * 	   d) HANDLING DONE PROPERTY
+ * 	   e) AUTOCOMPLETE
  * 	3) SEE STORED ITEMS
  */
 
@@ -224,7 +225,31 @@ $(document).ready(function(){
         }
     });
     
-    
+    //e) AUTOCOMPLETE
+    var autocompleteOptions = {
+	url: function(phrase) {
+		return "php/trainee/einkaufszettel_trainee.php?queryStr=" + phrase;
+	},
+	list: {
+		onChooseEvent: function() {
+			selectedVal = $('#item').getSelectedItemData();
+			//catch empty case
+			if(selectedVal.einheit == "") {
+				return true;
+			}
+			else {
+				//Set unit val
+				$('#unit').val(selectedVal.einheit);
+			}
+		},
+		match: {
+			enabled: true
+		}
+	},
+	theme: "round",
+	getValue: "name"
+	};
+    $("#item").easyAutocomplete(autocompleteOptions);
 	
 });
 

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<result>
+<stats>
+<numitemsfound>1</numitemsfound>
+<startfrom>0</startfrom>
+</stats>
+<items>
+<shortitem>
+<id>537027</id>
+<markedfordeletion>0</markedfordeletion>
+<thumbsrc>
+<![CDATA[ ]]>
+</thumbsrc>
+<thumbsrclarge>
+<![CDATA[ ]]>
+</thumbsrclarge>
+<foodrank>0.0069</foodrank>
+<ratings_num>0</ratings_num>
+<ratings_avg_perc>0</ratings_avg_perc>
+<producerid>153</producerid>
+<groupid>130</groupid>
+<productcode_ean>
+<![CDATA[ 4040600081050 ]]>
+</productcode_ean>
+<datasource>8</datasource>
+<data>
+<amount>100</amount>
+<amount_measuring_system>
+<![CDATA[ Mass (gram) ]]>
+</amount_measuring_system>
+<aggregate_state>
+<![CDATA[ solid ]]>
+</aggregate_state>
+<kj>398</kj>
+<kcal>95.06</kcal>
+<fat_gram>3.1</fat_gram>
+<kh_gram>13</kh_gram>
+<sugar_gram>12</sugar_gram>
+<protein_gram>0</protein_gram>
+<df_gram>-1</df_gram>
+<water_gram>0</water_gram>
+<alcohol_gram>0</alcohol_gram>
+</data>
+<description>
+<name>
+<![CDATA[ Joghurt ]]>
+</name>
+<option>
+<![CDATA[ Stachelbeer-Apfel ]]>
+</option>
+<producer>
+<![CDATA[ Landliebe ]]>
+</producer>
+<group>
+<![CDATA[ Neue Produkte ]]>
+</group>
+<imagedescription>
+<![CDATA[ ]]>
+</imagedescription>
+<imageauthor>
+<![CDATA[ ]]>
+</imageauthor>
+<imagecomplainturl>
+<![CDATA[ ]]>
+</imagecomplainturl>
+</description>
+</shortitem>
+</items>
+</result>

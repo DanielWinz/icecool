@@ -9,22 +9,34 @@
     <meta name="author" content="">
 
     <title>Icecool - virtuelle Küche</title>
-
+	
+	<!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    
     <!-- Vendors -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/sweetalert/sweetalert2.min.css" rel="stylesheet">
     <script src="vendor/sweetalert/sweetalert2.min.js"></script>
+<<<<<<< HEAD
     
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+=======
+    <script src="vendor/quagga/quagga.min.js"></script>
+    <script src="vendor/fullscreen/bs-modal-fullscreen.min.js"></script>
+>>>>>>> EinkaufAnlegen
     
     <!-- eigene JavaScript Dateien -->
     <script src="js/services.js"></script>
+    <script src="js/einkauf.js"></script>
     
     <!-- eigene CSS Dateien -->
     <link href="css/einkaufszettel.css" rel="stylesheet">
+    <link href="css/einkaufanlegen.css" rel="stylesheet">
 
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -723,7 +735,29 @@
     <!-- Service Modals -->
     
     <!-- Einkauf anlegen -->
-    
+    <div class="modal fade modal-fullscreen" id="servicesEinkauf">
+	  <div class="modal-dialog modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title">Einkauf anlegen</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body" id="servicesEinkaufBody" style="position: static">
+	      	<div class="row">
+	      	<div id="interactive" class="col-md-6 col-6 viewport"></div>
+	      	<div id="barcodeResult" class="col-md-6 col-6">test</div>
+    		</div>
+    		<div class="error"></div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" id="servicesEinkaufButton">Neues Produkt</button>
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
+	      </div>
+	    </div>
+	  </div>
+	 </div>
+	</div>    
     
     <!-- Einkaufszettel schreiben -->
     <div class="modal fade" id="servicesEinkaufszettel">

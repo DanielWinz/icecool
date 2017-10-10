@@ -1,4 +1,8 @@
-	$(function() {
+/**
+ * Using the Quagga.js Library for detecting barcodes
+ */
+
+$(function() {
     	// Create the QuaggaJS config object for the live stream
     	var liveStreamConfig = {
     			inputStream: {
@@ -32,12 +36,12 @@
     			}
     		);
     	// Start the live stream scanner when the modal opens
-    	$('#livestream_scanner').on('shown.bs.modal', function (e) {
+    	$('#servicesEinkauf').on('shown.bs.modal', function (e) {
     		Quagga.init(
     			liveStreamConfig, 
     			function(err) {
     				if (err) {
-    					$('#livestream_scanner .modal-body .error').html('<div class="alert alert-danger"><strong><i class="fa fa-exclamation-triangle"></i> '+err.name+'</strong>: '+err.message+'</div>');
+    					$('#servicesEinkauf .modal-body .error').html('<div class="alert alert-danger"><strong><i class="fa fa-exclamation-triangle"></i> '+err.name+'</strong>: '+err.message+'</div>');
     					Quagga.stop();
     					return;
     				}
@@ -72,30 +76,44 @@
     		}
     	});
     	
-    	// Once a barcode had been read successfully, stop quagga and 
-    	// close the modal after a second to let the user notice where 
-    	// the barcode had actually been found.
+    	// Once a barcode had been read successfully, process result to FDDB
+    	// stop quagga and display result in the list 
     	Quagga.onDetected(function(result) {    		
     		if (result.codeResult.code){
-    			$('#scanner_input').val(result.codeResult.code);
-    			Quagga.stop();	
-    			setTimeout(function(){ $('#livestream_scanner').modal('hide'); }, 1000);			
+    		
+    			$.ajax({
+							url: "../php/einkauf.php?ean=" + result.codeResult.code,
+							type: "GET",
+							success: function(item){
+									//to be done
+									//add item to list
+							}
+						});
+		
+    			Quagga.stop();			
     		}
     	});
         
     	// Stop quagga in any case, when the modal is closed
-        $('#livestream_scanner').on('hide.bs.modal', function(){
+        $('#servicesEinkauf').on('hide.bs.modal', function(){
         	if (Quagga){
         		Quagga.stop();	
         	}
         });
     	
-    	// Call Quagga.decodeSingle() for every file selected in the 
-    	// file input
-    	$("#livestream_scanner input:file").on("change", function(e) {
-    		if (e.target.files && e.target.files.length) {
-    			Quagga.decodeSingle($.extend({}, fileConfig, {src: URL.createObjectURL(e.target.files[0])}), function(result) {alert(result.codeResult.code);});
-    		}
-    	});
-    });
+    	// Once Button 'Neues Produkt' is pressed restart QuaggaJS
+		$('#servicesEinkaufButton').click(function() {
+		    Quagga.init(
+    			liveStreamConfig, 
+    			function(err) {
+    				if (err) {
+    					$('#servicesEinkauf .modal-body .error').html('<div class="alert alert-danger"><strong><i class="fa fa-exclamation-triangle"></i> '+err.name+'</strong>: '+err.message+'</div>');
+    					Quagga.stop();
+    					return;
+    				}
+    				Quagga.start();
+    			}
+    		);
+		});
+});
 

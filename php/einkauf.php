@@ -16,16 +16,18 @@
 	
 	));
 	
-	$response = curl_exec($curl);
+	// $response = curl_exec($curl);
 	
 	if(!curl_exec($curl)){
 	    die('Error: "' . curl_error($curl) . '" - Code: ' . curl_errno($curl));
 	}
 	
 	curl_close($curl);
+	// simulate FDDB Item
+	$file = file_get_contents('../testobject.xml');
 	
 	// Convert XML String to Object and send it back.
-	$xml = simplexml_load_string($response);
+	$xml = simplexml_load_string($file);
 	echo json_encode($xml);
 	
 ?>

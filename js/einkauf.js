@@ -82,11 +82,10 @@ $(function() {
     		if (result.codeResult.code){
     		
     			$.ajax({
-							url: "../php/einkauf.php?ean=" + result.codeResult.code,
+							url: "php/einkauf.php?ean=" + result.codeResult.code,
 							type: "GET",
 							success: function(item){
-									//to be done
-									//add item to list
+									console.log(item);
 							}
 						});
 		

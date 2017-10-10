@@ -9,44 +9,28 @@
     <meta name="author" content="">
 
     <title>Icecool - virtuelle Küche</title>
-<<<<<<< HEAD
 	
 	<!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     
-=======
     
       <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
->>>>>>> einkaufszettel
     <!-- Vendors -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/sweetalert/sweetalert2.min.css" rel="stylesheet">
     <link href="vendor/autocomplete/css/easy-autocomplete.css" rel="stylesheet">
     <link href="vendor/autocomplete/css/easy-autocomplete.themes.css" rel="stylesheet">
-    
-    
+    <script src="vendor/autocomplete/js/jquery.easy-autocomplete.js"></script>
     <script src="vendor/sweetalert/sweetalert2.min.js"></script>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-=======
     <script src="vendor/quagga/quagga.min.js"></script>
     <script src="vendor/fullscreen/bs-modal-fullscreen.min.js"></script>
->>>>>>> EinkaufAnlegen
-=======
     <script src="vendor/taggle/taggle.js"></script>
-    <script src="vendor/autocomplete/js/jquery.easy-autocomplete.js"></script>
->>>>>>> einkaufszettel
     
     <!-- eigene JavaScript Dateien -->
     <script src="js/services.js"></script>

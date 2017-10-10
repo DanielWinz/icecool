@@ -20,9 +20,27 @@ class DB {
 		$stmt->bindParam(":name", $item);
 		$stmt->bindParam(":menge", $amount);
 		$stmt->bindParam(":einheit", $unit);
-		///$stmt->bindParam(":erledigt", 1);
 		
 		
+		
+		
+		if($stmt->execute()) {
+			return self::$_db->lastInsertId();
+		} else {
+			return false;
+		}
+	}
+	
+	function getShoppinglist() {
+		$stmt = self::$_db->prepare("SELECT * FROM einkaufszettel ORDER BY id DESC");	
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_BOTH);
+		
+	}
+	
+	function deleteNote($id) {
+		$stmt = self::$_db->prepare("DELETE FROM einkaufszettel WHERE id=:id");
+		$stmt->bindParam(":id", $id);
 		
 		if($stmt->execute()) {
 			return true;

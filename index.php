@@ -9,16 +9,30 @@
     <meta name="author" content="">
 
     <title>Icecool - virtuelle Küche</title>
+<<<<<<< HEAD
 	
 	<!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/popper/popper.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
     
+=======
+    
+      <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+
+>>>>>>> einkaufszettel
     <!-- Vendors -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/sweetalert/sweetalert2.min.css" rel="stylesheet">
+    <link href="vendor/autocomplete/css/easy-autocomplete.css" rel="stylesheet">
+    <link href="vendor/autocomplete/css/easy-autocomplete.themes.css" rel="stylesheet">
+    
+    
     <script src="vendor/sweetalert/sweetalert2.min.js"></script>
+<<<<<<< HEAD
 <<<<<<< HEAD
     
     <!-- Bootstrap core JavaScript -->
@@ -29,6 +43,10 @@
     <script src="vendor/quagga/quagga.min.js"></script>
     <script src="vendor/fullscreen/bs-modal-fullscreen.min.js"></script>
 >>>>>>> EinkaufAnlegen
+=======
+    <script src="vendor/taggle/taggle.js"></script>
+    <script src="vendor/autocomplete/js/jquery.easy-autocomplete.js"></script>
+>>>>>>> einkaufszettel
     
     <!-- eigene JavaScript Dateien -->
     <script src="js/services.js"></script>
@@ -772,30 +790,6 @@
 	      <div class="modal-body" >
 			  <div class="receipt" style="padding-top: 0px; margin-top: 0px;">
 			    <ul class="shopping-list">
-			      <li class="confirmedNote">
-			        <div class="row note">
-			          <div class="col-md-2 col-2">
-			          	<div class="checkbox">
-  							<input type="checkbox" value="" class="checkNoteItem">
-						</div>
-			          </div>
-			          <div class="col-md-6 col-6 item">Kartoffeln</div>
-			          <div class="col-md-3 col-3 amount">1 kg</div>
-			          <div class="col-md-1 col-1 deleteNote">✗</div>
-			        </div>
-			      </li>
-			      <li class="confirmedNote">
-			        <div class="row note" >
-			        	<div class="col-md-2 col-2">
-			          		<div class="checkbox">
-  								<input type="checkbox" value="" class="checkNoteItem">
-						</div>
-			          </div>
-			          <div class="col-md-6 col-6 item">Bananen</div>
-			          <div class="col-md-3 col-3 amount">3 stk</div>
-			          <div class="col-md-1 col-1 deleteNote">✗</div>
-			        </div>
-			      </li>
 			      <li class="new">
 			        <div class="row">
 			          <div class="col-md-6 col-6 item">
@@ -821,13 +815,18 @@
 			  </div>
 	      </div>
 	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary">Einkaufszettel anlegen</button>
+	        <button type="button" class="btn btn-primary" style="vertical-align:middle;">Einkaufszettel anlegen<div class="loader"></div></button>
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
 	      </div>
 	    </div>
 	  </div>
 	</div>
 
+<<<<<<< HEAD
+=======
+  
+
+>>>>>>> einkaufszettel
     <!-- Plugin JavaScript -->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 

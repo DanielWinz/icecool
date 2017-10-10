@@ -14,6 +14,62 @@ class Trainee {
 			die();
 		}
 	}
+	
+	/** adds new Item for suggestions
+	 * $stmt-> statement for checking whether name, unit already exist
+	 * $stmtAdd-> adds new name to DB if it does not exist
+	 * $stmtUpdate-> updates the counter for trainee
+	 */
+	
+	
+	function addSuggestion($item, $unit) {
+		//check if name, unit already exist in DB
+		$stmt = self::$_db->prepare("SELECT * FROM einkaufszettel WHERE name=:name AND einheit=:einheit");	
+		$stmt->bindParam(":name", $item);
+		$stmt->bindParam(":einheit", $unit);
+		$stmt->execute();
+		
+		//if name,unit do not exist => add data to DB
+		if($stmt->rowCount() === 0) {
+			$counter = 1;
+			$stmtAdd = self::$_db->prepare("INSERT INTO einkaufszettel (name, einheit, counter) VALUES(:name, :einheit, :counter)");
+			$stmtAdd->bindParam(":name", $item);
+			$stmtAdd->bindParam(":einheit", $unit);
+			$stmtAdd->bindParam(":counter", $counter);
+			if($stmtAdd->execute()) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		//if name, unit already exist => update counter to improve suggestions
+		if($stmt->rowCount() === 1){
+			$counter = $stmt->fetch(PDO::FETCH_OBJ)->counter;
+			$counter ++;
+			
+			$stmtUpdate = self::$_db->prepare("UPDATE einkaufszettel SET counter=:counter WHERE name=:name AND einheit=:einheit");
+				
+			$stmtUpdate->bindParam(":counter", $counter);
+			$stmtUpdate->bindParam(":name", $item);
+			$stmtUpdate->bindParam(":einheit", $unit);
+			
+			
+			if($stmtUpdate->execute()) {
+				return true;
+			} else {
+				return false;
+			}	
+		}
+	}
+
+	function getSuggestion() {
+		
+		$stmt = self::$_db->prepare("SELECT * FROM einkaufszettel ORDER BY counter DESC ");	
+		
+		$stmt->execute();
+		return $stmt->fetchAll(PDO::FETCH_BOTH);
+		
+	}
 
 }
 ?>

@@ -30,7 +30,6 @@
     <script src="vendor/sweetalert/sweetalert2.min.js"></script>
     <script src="vendor/quagga/quagga.min.js"></script>
     <script src="vendor/fullscreen/bs-modal-fullscreen.min.js"></script>
-    <script src="vendor/taggle/taggle.js"></script>
     
     <!-- eigene JavaScript Dateien -->
     <script src="js/services.js"></script>

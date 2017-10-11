@@ -16,7 +16,7 @@
 	
 	));
 	
-	// $response = curl_exec($curl);
+	$response = curl_exec($curl);
 	
 	if(!curl_exec($curl)){
 	    die('Error: "' . curl_error($curl) . '" - Code: ' . curl_errno($curl));
@@ -27,7 +27,7 @@
 	//$file = file_get_contents('../testobject.xml');
 	
 	// Convert XML String to Object and send it back.
-	$xml = simplexml_load_string($resp);
+	$xml = simplexml_load_string($response);
 	echo json_encode($xml);
 	
 ?>

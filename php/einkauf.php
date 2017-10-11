@@ -24,10 +24,10 @@
 	
 	curl_close($curl);
 	// simulate FDDB Item
-	$file = file_get_contents('../testobject.xml');
+	//$file = file_get_contents('../testobject.xml');
 	
 	// Convert XML String to Object and send it back.
-	$xml = simplexml_load_string($file);
+	$xml = simplexml_load_string($resp);
 	echo json_encode($xml);
 	
 ?>

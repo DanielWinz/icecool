@@ -742,7 +742,10 @@
 	      <div class="modal-body" id="servicesEinkaufBody" style="position: static">
 	      	<div class="row">
 	      	<div id="interactive" class="col-md-6 col-6 viewport"></div>
-	      	<div id="barcodeResult" class="col-md-6 col-6">test</div>
+	      	<div class="receipt col-md-6 col-6" style="padding-top: 0px; margin-top: 0px;">
+			    <ul class="shopping-list" id="einkaufResult">
+			    </ul>
+			  </div>
     		</div>
     		<div class="error"></div>
 	      <div class="modal-footer">

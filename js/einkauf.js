@@ -20,7 +20,7 @@ $(function() {
     			},
     			numOfWorkers: (navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 4),
     			decoder: {
-    				"readers":['ean_reader','ean_8_reader']
+    				"readers":['ean_reader']
     			},
     			locate: true
     		};
@@ -89,9 +89,13 @@ $(function() {
 								var product = JSON.parse(item);
 								console.log(barcode);
 								console.log(product);
-								//check if item was found
+								
+								// check if item was found
 								if(product.stats.numitemsfound != 0){
-									console.log(product);
+									
+									
+									// a) display item in the list
+									
 									$('#einkaufResult').append(  '<li class="confirmedNote" id='+1+'>'+
 									 '<div class="row note">'+
 									 '<div class="col-md-2 col-2">'+
@@ -104,6 +108,7 @@ $(function() {
 								     '<div class="col-md-1 col-1 deleteNote">✗</div>'+
 								     '</div>'+
 								     '</li>');
+
 								}
 								else{
 									swal('Es konnte kein Produkt mit dem Barcode ' + barcode + ' gefunden werden. ');

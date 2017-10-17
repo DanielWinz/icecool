@@ -15,13 +15,25 @@ class Trainee {
 		}
 	}
 	
+	function addTrainingItem($ean, $name, $amount, $unit) {
+		//add TrainingItem to DB if it does not exist already
+		
+		if(!isExisting($ean)){
+				
+			$stmt = self::$_db->prepare("INSERT INTO einkaufszettel (name, ean, amount, unit) VALUES (:name, :ean, :amount, :unit)");	
+			$stmt->bindParam(":ean", $ean);
+			$stmt->bindParam(":name", $name);
+			$stmt->bindParam(":amount", $amount);
+			$stmt->bindParam(":unit", $unit);
+			$stmt->execute();
+		}
+	}
+	
 	/** adds new Item for suggestions
 	 * $stmt-> statement for checking whether name, unit already exist
 	 * $stmtAdd-> adds new name to DB if it does not exist
 	 * $stmtUpdate-> updates the counter for trainee
 	 */
-	
-	
 	function addSuggestion($item, $unit) {
 		//check if name, unit already exist in DB
 		$stmt = self::$_db->prepare("SELECT * FROM einkaufszettel WHERE name=:name AND einheit=:einheit");	
@@ -69,6 +81,19 @@ class Trainee {
 		$stmt->execute();
 		return $stmt->fetchAll(PDO::FETCH_BOTH);
 		
+	}
+	
+	function isExisting($ean){
+			
+		$stmt = self::$_db->prepare("SELECT * FROM einkaufszettel WHERE ean= :ean");
+		$stmt->execute();
+		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		
+		if($row != null)
+			return true;
+		
+		else 
+			return false;
 	}
 
 }

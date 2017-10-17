@@ -27,7 +27,7 @@
 	//$file = file_get_contents('../testobject.xml');
 	
 	// Convert XML String to Object and send it back.
-	$xml = simplexml_load_string($response);
+	$xml = simplexml_load_string($response,'SimpleXMLElement', LIBXML_NOCDATA);
 	echo json_encode($xml);
 	
-?>
+?> 

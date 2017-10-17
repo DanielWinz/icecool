@@ -20,7 +20,7 @@ $(function() {
     			},
     			numOfWorkers: (navigator.hardwareConcurrency ? navigator.hardwareConcurrency : 4),
     			decoder: {
-    				"readers":['ean_reader']
+    				"readers":['ean_reader','ean_8_reader']
     			},
     			locate: true
     		};
@@ -88,6 +88,7 @@ $(function() {
 							success: function(item){
 								var product = JSON.parse(item);
 								console.log(barcode);
+								console.log(product);
 								//check if item was found
 								if(product.stats.numitemsfound != 0){
 									console.log(product);

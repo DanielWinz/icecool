@@ -27,12 +27,13 @@ class Trainee {
 			$stmt->bindParam(":unit", $unit);
 			$stmt->execute();
 		}
+		error_log("Wert der FKT:" . isExisting($ean),0);
 	}
 	
-	/** adds new Item for suggestions
-	 * $stmt-> statement for checking whether name, unit already exist
-	 * $stmtAdd-> adds new name to DB if it does not exist
-	 * $stmtUpdate-> updates the counter for trainee
+	/** NEW ITEM FOR SUGGESTION
+	 * 1) check if name and unit already exist
+	 * 2) if not: add to DB
+	 * 3) if yes: update counter for trainee
 	 */
 	function addSuggestion($item, $unit) {
 		//check if name, unit already exist in DB
@@ -87,8 +88,9 @@ class Trainee {
 			
 		$stmt = self::$_db->prepare("SELECT * FROM einkaufszettel WHERE ean= :ean");
 		$stmt->execute();
+
 		$row = $stmt->rowCount();
-		
+
 		if($row != 0)
 			return true;
 		

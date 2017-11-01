@@ -747,7 +747,12 @@
 			    </ul>
 			  </div>
     		</div>
-    		<div class="error"></div>
+    		<div class="row">
+    			<div cass="error col-md-6 col-6"></div>
+    			<div class="form-group col-md-6 col-6">
+    				<input id="ean" type="number" class="form-control" placeholder="manuelle Eingabe">
+    			</div>
+    		</div>
 	      <div class="modal-footer">
 	      	<input type="file" accept="image/*" capture="camera">
 	        <button type="button" class="btn btn-primary" id="servicesEinkaufButton">Neues Produkt</button>

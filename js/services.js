@@ -39,6 +39,44 @@ $(document).ready(function(){
 		// further service is provided by einkauf.js
 	});
 	
+	$("#ean").blur(function(){
+		var ean = $("#servicesEinkauf").find("#ean").val();
+		console.log(ean);
+		
+		$.ajax({
+							url: "php/einkauf.php?ean=" + ean,
+							type: "GET",
+							success: function(item){
+								var product = JSON.parse(item);
+								console.log(product);
+								
+								// check if item was found
+								if(product.stats.numitemsfound != 0){
+									
+									
+									// a) display item in the list
+									
+									$('#einkaufResult').append(  '<li class="confirmedNote" id='+1+'>'+
+									 '<div class="row note">'+
+									 '<div class="col-md-2 col-2">'+
+									 '<div class="checkbox">'+
+									 '<input type="checkbox" value="" class="checkNoteItem">'+
+									 '</div>'+
+									 '</div>'+
+								     '<div class="col-md-6 col-6 item">'+product.items.shortitem.description.name+'</div>'+
+								     '<div class="col-md-3 col-3 amount">'+product.items.shortitem.data.amount+' ' + product.items.shortitem.data.amount_measuring_system + '</div>'+
+								     '<div class="col-md-1 col-1 deleteNote">✗</div>'+
+								     '</div>'+
+								     '</li>');
+
+								}
+								else{
+									swal('Es konnte kein Produkt mit dem Barcode ' + ean + ' gefunden werden. ');
+								}
+							}
+						});
+	});
+	
 	// =============================================================
     // 2) WRITE SHOPPING LIST
     // =============================================================

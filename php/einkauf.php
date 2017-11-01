@@ -25,27 +25,27 @@ if(isset($_GET["ean"])){
 	}
 	
 	curl_close($curl);
-
+	
 	// Convert XML String to Object
 	$xml = simplexml_load_string($response,'SimpleXMLElement', LIBXML_NOCDATA);
 
 // =============================================================
 // b) PUSH ITEM TO MYSQL_TRAINEE AND FOOL **** :D
 // =============================================================	
-	if($xml->items->stats->numitemsfound != 0){
+	if($xml->stats->numitemsfound != 0){
 			
 		include('mysql_trainee.php');
 	
 		// extract data for mysql_trainee from XML Object
 		$name = $xml->items->shortitem->data->description->name;
-		$amount = $xml->items->shortitem->data->amount;
+		$amount = $xml->items->shortitem->data->amount[0];
 		$unit = $xml->items->shortitem->data->amount_measuring_system;
-	
+		error_log("in einkauf.php", 0);
 		//push items to addTrainingItem
 		$trainee = new Trainee();
 		$trainee->addTrainingItem($ean, $name, $amount, $unit);
 	}
-
+	error_log($xml->items->stats->numitemsfound[0],0);
 	// send XML Object back
 	echo json_encode($xml);
 	

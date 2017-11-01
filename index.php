@@ -749,6 +749,7 @@
     		</div>
     		<div class="error"></div>
 	      <div class="modal-footer">
+	      	<input type="file" accept="image/*" capture="camera">
 	        <button type="button" class="btn btn-primary" id="servicesEinkaufButton">Neues Produkt</button>
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
 	      </div>

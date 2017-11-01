@@ -87,9 +87,9 @@ class Trainee {
 			
 		$stmt = self::$_db->prepare("SELECT * FROM einkaufszettel WHERE ean= :ean");
 		$stmt->execute();
-		$row = $stmt->fetch(PDO::FETCH_ASSOC);
+		$row = $stmt->rowCount();
 		
-		if($row != null)
+		if($row != 0)
 			return true;
 		
 		else 

@@ -10,7 +10,7 @@
 	foreach ($query as $fetch ) {
 		$e = array();
 	    $e['name'] = $fetch['name'];
-	    $e['einheit'] = $fetch['einheit'];
+	    $e['unit'] = $fetch['unit'];
 	    array_push($suggestions, $e);
 	}
 	echo json_encode($suggestions);

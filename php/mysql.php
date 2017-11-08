@@ -16,10 +16,10 @@ class DB {
 	}
 	// adds new Item of shopping cart to DB
 	function insertNoteItem($item, $amount, $unit) {
-		$stmt = self::$_db->prepare("INSERT INTO einkaufszettel (name, menge, einheit) VALUES(:name, :menge, :einheit)");
+		$stmt = self::$_db->prepare("INSERT INTO einkaufszettel (name, amount, unit) VALUES(:name, :amount, :unit)");
 		$stmt->bindParam(":name", $item);
-		$stmt->bindParam(":menge", $amount);
-		$stmt->bindParam(":einheit", $unit);
+		$stmt->bindParam(":amount", $amount);
+		$stmt->bindParam(":unit", $unit);
 		
 		
 		

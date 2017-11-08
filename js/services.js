@@ -234,13 +234,10 @@ $(document).ready(function(){
 		onChooseEvent: function() {
 			selectedVal = $('#item').getSelectedItemData();
 			//catch empty case
-			if(selectedVal.einheit == "") {
-				return true;
-			}
-			else {
+			
 				//Set unit val
-				$('#unit').val(selectedVal.einheit);
-			}
+				$('#unit').val(selectedVal.unit);
+			
 		},
 		match: {
 			enabled: true

@@ -23,18 +23,22 @@ class Trainee {
 	
 	
 	function addSuggestion($item, $unit) {
+		$ean='';
+		$amount='';
 		//check if name, unit already exist in DB
-		$stmt = self::$_db->prepare("SELECT * FROM einkaufszettel WHERE name=:name AND einheit=:einheit");	
+		$stmt = self::$_db->prepare("SELECT * FROM einkaufszettel WHERE name=:name AND unit=:unit");	
 		$stmt->bindParam(":name", $item);
-		$stmt->bindParam(":einheit", $unit);
+		$stmt->bindParam(":unit", $unit);
 		$stmt->execute();
 		
 		//if name,unit do not exist => add data to DB
 		if($stmt->rowCount() === 0) {
 			$counter = 1;
-			$stmtAdd = self::$_db->prepare("INSERT INTO einkaufszettel (name, einheit, counter) VALUES(:name, :einheit, :counter)");
+			$stmtAdd = self::$_db->prepare("INSERT INTO einkaufszettel (name, ean, amount, unit,  counter) VALUES(:name, :ean, :amount, :unit, :counter)");
 			$stmtAdd->bindParam(":name", $item);
-			$stmtAdd->bindParam(":einheit", $unit);
+			$stmtAdd->bindParam(":ean", $ean);
+			$stmtAdd->bindParam(":amount", $amount);
+			$stmtAdd->bindParam(":unit", $unit);
 			$stmtAdd->bindParam(":counter", $counter);
 			if($stmtAdd->execute()) {
 				return true;
@@ -47,11 +51,11 @@ class Trainee {
 			$counter = $stmt->fetch(PDO::FETCH_OBJ)->counter;
 			$counter ++;
 			
-			$stmtUpdate = self::$_db->prepare("UPDATE einkaufszettel SET counter=:counter WHERE name=:name AND einheit=:einheit");
+			$stmtUpdate = self::$_db->prepare("UPDATE einkaufszettel SET counter=:counter WHERE name=:name AND unit=:unit");
 				
 			$stmtUpdate->bindParam(":counter", $counter);
 			$stmtUpdate->bindParam(":name", $item);
-			$stmtUpdate->bindParam(":einheit", $unit);
+			$stmtUpdate->bindParam(":unit", $unit);
 			
 			
 			if($stmtUpdate->execute()) {

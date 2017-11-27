@@ -91,7 +91,7 @@ $(function() {
 								console.log(product);
 								
 								// check if item was found
-								if(product.stats.numitemsfound != 0){
+								if(product.data.id != 0){
 									
 									
 									// a) display item in the list
@@ -103,7 +103,7 @@ $(function() {
 									 '<input type="checkbox" value="" class="checkNoteItem">'+
 									 '</div>'+
 									 '</div>'+
-								     '<div class="col-md-6 col-6 item">'+product.items.shortitem.description.name+'</div>'+
+								     '<div class="col-md-6 col-6 item">'+product.data.name_translations.de+'</div>'+
 								     '<div class="col-md-3 col-3 amount">'+product.items.shortitem.data.amount+' ' + product.items.shortitem.data.amount_measuring_system + '</div>'+
 								     '<div class="col-md-1 col-1 deleteNote">✗</div>'+
 								     '</div>'+

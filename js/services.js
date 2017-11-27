@@ -47,11 +47,17 @@ $(document).ready(function(){
 							url: "php/einkauf.php?ean=" + ean,
 							type: "GET",
 							success: function(item){
+
 								var product = JSON.parse(item);
+								var data = product.data;
+								console.log(data);
 								console.log(product);
-								
+								console.log(product['data']);
+								console.log(typeof product);
+								console.log(typeof item);
+
 								// check if item was found
-								if(product.stats.numitemsfound != 0){
+								if(typeof product.data[0].id !== 'undefined'){
 									
 									
 									// a) display item in the list
@@ -63,7 +69,7 @@ $(document).ready(function(){
 									 '<input type="checkbox" value="" class="checkNoteItem">'+
 									 '</div>'+
 									 '</div>'+
-								     '<div class="col-md-6 col-6 item">'+product.items.shortitem.description.name+'</div>'+
+								     '<div class="col-md-6 col-6 item">'+product.data[0].name_translations.de+'</div>'+
 								     '<div class="col-md-3 col-3 amount">'+product.items.shortitem.data.amount+' ' + product.items.shortitem.data.amount_measuring_system + '</div>'+
 								     '<div class="col-md-1 col-1 deleteNote">✗</div>'+
 								     '</div>'+
@@ -74,7 +80,8 @@ $(document).ready(function(){
 									swal('Es konnte kein Produkt mit dem Barcode ' + ean + ' gefunden werden. ');
 								}
 							}
-						});
+					}); 
+					
 	});
 	
 	// =============================================================

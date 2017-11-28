@@ -80,12 +80,39 @@ $(function() {
     	// stop quagga and display result in the list 
     	Quagga.onDetected(function(result) {    		
     		if (result.codeResult.code){
+    		var barcode = result.codeResult.code;
     		
     			$.ajax({
-							url: "php/einkauf.php?ean=" + result.codeResult.code,
+							url: "php/einkauf.php?ean=" + barcode,
 							type: "GET",
 							success: function(item){
-									console.log(item);
+								console.log(item);
+								var product = JSON.parse(item);
+								console.log(product);
+								
+								// check if item was found
+								if(typeof product.data !== 'undefined'){
+									
+									
+									// a) display item in the list
+									
+									$('#einkaufResult').append(  '<li class="confirmedNote" id='+1+'>'+
+									 '<div class="row note">'+
+									 '<div class="col-md-2 col-2">'+
+									 '<div class="checkbox">'+
+									 '<input type="checkbox" value="" class="checkNoteItem">'+
+									 '</div>'+
+									 '</div>'+
+								     '<div class="col-md-6 col-6 item">'+ product.data[0].name_translations.de +'</div>'+
+								     '<div class="col-md-3 col-3 amount">'+ product.data[0].portion_quantity +' ' + product.data[0].portion_unit + '</div>'+
+								     '<div class="col-md-1 col-1 deleteNote">✗</div>'+
+								     '</div>'+
+								     '</li>');
+								     
+								}
+								else{
+									swal('Es konnte kein Produkt mit dem Barcode ' + barcode + ' gefunden werden. ');
+								}
 							}
 						});
 		

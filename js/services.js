@@ -29,6 +29,22 @@ $(document).ajaxComplete(function () {
 
 $(document).ready(function(){
 	
+	
+	$("#einkaufResult").on('tap', function(event){
+    	// enabling the touch tap event to get further information about the product 
+    	// functions need to defined
+    	
+    	$.ajax({
+    					url: "php/einkauf.php?ean=" + event.target.dataset.id,
+    					type: "GET",
+    					success: function (item){
+    							//tbd
+    						
+						}
+				});
+    					
+	});
+
 	// =============================================================
     // 1) APPLY PURCHASE
     // =============================================================
@@ -36,7 +52,48 @@ $(document).ready(function(){
 	$("#addEinkauf").click(function(){
 		
 		$("#servicesEinkauf").modal();
-		// further service is provided by einkauf.js
+		// further service relying on the use of the camera for the barcode is provided by einkauf.js
+		// input from the input field is proceeded here
+	});
+	
+	$("#ean").blur(function(){
+		var ean = $("#servicesEinkauf").find("#ean").val();
+		console.log(ean);
+		
+		$.ajax({
+							url: "php/einkauf.php?ean=" + ean,
+							type: "GET",
+							success: function(item){
+								
+								var product = JSON.parse(item);
+								console.log(typeof product);
+								// check if item was found
+								if(product.data[0] !== null){
+								
+									// a) display item in the list
+									
+									$('#einkaufResult').append(  '<li class="confirmedNote" id='+1+'>'+
+									 '<div class="row note">'+
+									 '<div class="col-md-2 col-2">'+
+									 '<div class="checkbox">'+
+									 '<input type="checkbox" value="" class="checkNoteItem">'+
+									 '</div>'+
+									 '</div>'+
+								     '<div class="col-md-6 col-6 item" data-toggle="tooltip" data-id="' + ean + '">'+ product.data[0].name_translations.de + '</div>'+
+								     '<div class="col-md-3 col-3 amount">'+ product.data[0].portion_quantity +' ' + product.data[0].portion_unit + '</div>'+
+								     '<div class="col-md-1 col-1 deleteNote">✗</div>'+
+								     '</div>'+
+								     '</li>');
+								     
+								     
+
+								}
+								else{
+									swal('Es konnte kein Produkt mit dem Barcode ' + ean + ' gefunden werden. ');
+								}
+							}
+					}); 
+					
 	});
 	
 	// =============================================================

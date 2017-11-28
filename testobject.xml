@@ -20,13 +20,12 @@
 <producerid>153</producerid>
 <groupid>130</groupid>
 <productcode_ean>
-<![CDATA[ 4040600081050 ]]>
+4040600081050
 </productcode_ean>
 <datasource>8</datasource>
 <data>
 <amount>100</amount>
-<amount_measuring_system>
-<![CDATA[ Mass (gram) ]]>
+<amount_measuring_system>g
 </amount_measuring_system>
 <aggregate_state>
 <![CDATA[ solid ]]>
@@ -43,7 +42,7 @@
 </data>
 <description>
 <name>
-<![CDATA[ Joghurt ]]>
+Joghurt Landliebe
 </name>
 <option>
 <![CDATA[ Stachelbeer-Apfel ]]>

@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.6.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Erstellungszeit: 03. Okt 2017 um 18:46
--- Server-Version: 10.1.26-MariaDB
--- PHP-Version: 7.1.8
+-- Erstellungszeit: 17. Okt 2017 um 19:16
+-- Server-Version: 5.7.14
+-- PHP-Version: 7.0.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -30,9 +28,11 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `einkaufszettel` (
   `id` int(11) NOT NULL,
-  `name` varchar(512) NOT NULL,
-  `anzahl` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `name` varchar(512) CHARACTER SET latin1 NOT NULL,
+  `ean` int(11) DEFAULT NULL,
+  `amount` int(11) DEFAULT NULL,
+  `unit` varchar(3) COLLATE utf8_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Indizes der exportierten Tabellen
@@ -52,8 +52,7 @@ ALTER TABLE `einkaufszettel`
 -- AUTO_INCREMENT für Tabelle `einkaufszettel`
 --
 ALTER TABLE `einkaufszettel`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

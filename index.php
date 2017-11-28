@@ -12,7 +12,7 @@
 	
 	<!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/popper/popper.min.js"></script>
+    <script src="vendor/popper/popper.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Vendors -->
@@ -24,6 +24,7 @@
     <script src="vendor/sweetalert/sweetalert2.min.js"></script>
     <script src="vendor/quagga/quagga.min.js"></script>
     <script src="vendor/jquery-touch/jquery.mobile-events.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.js"></script>
     
     
     <!-- eigene JavaScript Dateien -->

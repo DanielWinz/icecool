@@ -17,9 +17,9 @@ class Trainee {
 	
 	function addTrainingItem($ean, $name, $amount, $unit) {
 		//add TrainingItem to DB if it does not exist already
-
+		
 		if($this->isExisting($ean)){
-			error_log($ean);
+			
 			$stmt = self::$_db->prepare("INSERT INTO einkaufszettel (name, ean, amount, unit) VALUES (:name, :ean, :amount, :unit)");	
 			$stmt->bindParam(":ean", $ean);
 			$stmt->bindParam(":name", $name);
@@ -85,14 +85,14 @@ class Trainee {
 	}
 	
 	function isExisting($ean){
-			
-		$stmt = self::$_db->prepare("SELECT * FROM einkaufszettel WHERE ean=:ean");
+
+		$stmt = self::$_db->prepare("SELECT ean FROM einkaufszettel WHERE ean=:ean");
 		$stmt->bindParam(":ean", $ean);
 		$stmt->execute();
 
-		$row = $stmt->rowCount();
-		error_log($row, 0);
-		if($row != 0)
+		$row = $stmt->fetchColumn();
+		
+		if($row !== false)
 			return false;
 		
 		else 

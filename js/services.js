@@ -29,6 +29,13 @@ $(document).ajaxComplete(function () {
 
 $(document).ready(function(){
 	
+	$("#einkaufResult").on('tap', function(event){
+    	// what you want to happen when mouseover and mouseout 
+    	// occurs on elements that match '.dosomething'
+    	console.log(event);
+    	console.log(event.target);
+	});
+
 	// =============================================================
     // 1) APPLY PURCHASE
     // =============================================================
@@ -36,7 +43,8 @@ $(document).ready(function(){
 	$("#addEinkauf").click(function(){
 		
 		$("#servicesEinkauf").modal();
-		// further service is provided by einkauf.js
+		// further service relying on the use of the camera for the barcode is provided by einkauf.js
+		// input from the input field is proceeded here
 	});
 	
 	$("#ean").blur(function(){
@@ -47,19 +55,12 @@ $(document).ready(function(){
 							url: "php/einkauf.php?ean=" + ean,
 							type: "GET",
 							success: function(item){
-
+								
 								var product = JSON.parse(item);
-								var data = product.data;
-								console.log(data);
-								console.log(product);
-								console.log(product['data']);
 								console.log(typeof product);
-								console.log(typeof item);
-
 								// check if item was found
-								if(typeof product.data[0].id !== 'undefined'){
-									
-									
+								if(product.data[0] !== null){
+								
 									// a) display item in the list
 									
 									$('#einkaufResult').append(  '<li class="confirmedNote" id='+1+'>'+
@@ -69,8 +70,8 @@ $(document).ready(function(){
 									 '<input type="checkbox" value="" class="checkNoteItem">'+
 									 '</div>'+
 									 '</div>'+
-								     '<div class="col-md-6 col-6 item">'+product.data[0].name_translations.de+'</div>'+
-								     '<div class="col-md-3 col-3 amount">'+product.items.shortitem.data.amount+' ' + product.items.shortitem.data.amount_measuring_system + '</div>'+
+								     '<div class="col-md-6 col-6 item">'+ product.data[0].name_translations.de + '</div>'+
+								     '<div class="col-md-3 col-3 amount">'+ product.data[0].portion_quantity +' ' + product.data[0].portion_unit + '</div>'+
 								     '<div class="col-md-1 col-1 deleteNote">✗</div>'+
 								     '</div>'+
 								     '</li>');

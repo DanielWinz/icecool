@@ -40,7 +40,7 @@ if(isset($_GET["ean"])){
 // =============================================================
 // b) PUSH ITEM TO MYSQL_TRAINEE AND FOOL **** :D
 // =============================================================	
-	// if($xml->stats->numitemsfound != 0){
+	//if($xml->stats->numitemsfound != 0){
 	//	error_log($ean);
 	//	include('mysql_trainee.php');
 		// extract data for mysql_trainee from XML Object
@@ -53,11 +53,28 @@ if(isset($_GET["ean"])){
 		//push items to addTrainingItem
 	//	$trainee = new Trainee();
 	//	$trainee->addTrainingItem($ean, $name, $amount, $unit);
+	
+// =============================================================
+// c) PUSH ITEM FROM OPENFOOD TO MYSQL_TRAINEE
+// =============================================================	
+	$resp = json_decode($response);
+	
+		if(count($resp->data) > 0){
+			
+		include('mysql_trainee.php');
+		// extract data for mysql_trainee from XML Object
+		$name = $resp->data[0]->name_translations->de;
+		$amount = $resp->data[0]->portion_quantity;
+		$unit = $resp->data[0]->portion_unit;
+		
+		//push items to addTrainingItem
+		$trainee = new Trainee();
+		$trainee->addTrainingItem($ean, $name, $amount, $unit);
 	}
 
 	// send XML Object back
 	echo $response;
 	
-	//}
+	}
     	
 ?> 

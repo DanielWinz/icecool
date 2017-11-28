@@ -23,7 +23,8 @@
     <script src="vendor/autocomplete/js/jquery.easy-autocomplete.js"></script>
     <script src="vendor/sweetalert/sweetalert2.min.js"></script>
     <script src="vendor/quagga/quagga.min.js"></script>
-    <script src="vendor/fullscreen/bs-modal-fullscreen.min.js"></script>
+    <script src="vendor/jquery-touch/jquery.mobile-events.js"></script>
+    
     
     <!-- eigene JavaScript Dateien -->
     <script src="js/services.js"></script>
@@ -730,7 +731,8 @@
     <!-- Service Modals -->
     
     <!-- Einkauf anlegen -->
-    <div class="modal fade modal-fullscreen" id="servicesEinkauf">
+    
+    <div class="portfolio-modal modal fade" id="servicesEinkauf" tabindex="-1" role="dialog" aria-hidden="true">
 	  <div class="modal-dialog modal-lg" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -741,7 +743,7 @@
 	      </div>
 	      <div class="modal-body" id="servicesEinkaufBody" style="position: static">
 	      	<div class="row">
-	      	<div id="interactive" class="col-md-6 col-6 viewport"></div>
+	      	<div id="interactive" class="col-md-6 col-6 viewport  d-block mx-auto"></div>
 	      	<div class="receipt col-md-6 col-6" style="padding-top: 0px; margin-top: 0px;">
 			    <ul class="shopping-list" id="einkaufResult">
 			    </ul>

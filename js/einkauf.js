@@ -86,12 +86,12 @@ $(function() {
 							url: "php/einkauf.php?ean=" + barcode,
 							type: "GET",
 							success: function(item){
+								console.log(item);
 								var product = JSON.parse(item);
-								console.log(barcode);
 								console.log(product);
 								
 								// check if item was found
-								if(product.data.id != 0){
+								if(typeof product.data !== 'undefined'){
 									
 									
 									// a) display item in the list
@@ -103,12 +103,12 @@ $(function() {
 									 '<input type="checkbox" value="" class="checkNoteItem">'+
 									 '</div>'+
 									 '</div>'+
-								     '<div class="col-md-6 col-6 item">'+product.data.name_translations.de+'</div>'+
-								     '<div class="col-md-3 col-3 amount">'+product.items.shortitem.data.amount+' ' + product.items.shortitem.data.amount_measuring_system + '</div>'+
+								     '<div class="col-md-6 col-6 item">'+ product.data[0].name_translations.de +'</div>'+
+								     '<div class="col-md-3 col-3 amount">'+ product.data[0].portion_quantity +' ' + product.data[0].portion_unit + '</div>'+
 								     '<div class="col-md-1 col-1 deleteNote">✗</div>'+
 								     '</div>'+
 								     '</li>');
-
+								     
 								}
 								else{
 									swal('Es konnte kein Produkt mit dem Barcode ' + barcode + ' gefunden werden. ');

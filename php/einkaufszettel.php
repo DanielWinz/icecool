@@ -40,9 +40,9 @@ if(isset($_POST["fetchAllNotes"]))
 	$e = array();
     $e['id'] = $fetch['id'];
     $e['name'] = $fetch['name'];
-    $e['menge'] = $fetch['menge'];
-    $e['einheit'] = $fetch['einheit'];
-	$e['erledigt'] = $fetch['erledigt'];
+    $e['menge'] = $fetch['amount'];
+    $e['einheit'] = $fetch['unit'];
+	$e['erledigt'] = $fetch['done'];
 	/**
 	 * unused property timestamp
 	 * $e['timestamp'] = $fetch['timestamp'];

@@ -67,8 +67,9 @@ $(document).ready(function(){
 								
 								var product = JSON.parse(item);
 								console.log(typeof product);
+								console.log(product);
 								// check if item was found
-								if(product.data[0] !== null){
+								if(typeof product.data[0] !== 'undefined'){
 								
 									// a) display item in the list
 									
@@ -84,8 +85,7 @@ $(document).ready(function(){
 								     '<div class="col-md-1 col-1 deleteNote">✗</div>'+
 								     '</div>'+
 								     '</li>');
-								     
-								     
+								     	     
 
 								}
 								else{

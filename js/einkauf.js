@@ -91,7 +91,7 @@ $(function() {
 								console.log(product);
 								
 								// check if item was found
-								if(typeof product.data !== 'undefined'){
+								if(typeof product.data[0] !== 'undefined'){
 									
 									
 									// a) display item in the list
@@ -104,7 +104,9 @@ $(function() {
 									 '</div>'+
 									 '</div>'+
 								     '<div class="col-md-6 col-6 item">'+ product.data[0].name_translations.de +'</div>'+
-								     '<div class="col-md-3 col-3 amount">'+ product.data[0].portion_quantity +' ' + product.data[0].portion_unit + '</div>'+
+							//	     '<div class="col-md-3 col-3 amount"> '+ product.data[0].portion_quantity +' ' + product.data[0].portion_unit + '</div>'+
+				//alternative		 '<div class="col-md-3 col-3 amount"> <input class="form-control" type="number" value="' + product.data[0].portion_quantity + '">' + 
+									  ' ' + product.data[0].portion_unit + "</div>" +
 								     '<div class="col-md-1 col-1 deleteNote">✗</div>'+
 								     '</div>'+
 								     '</li>');

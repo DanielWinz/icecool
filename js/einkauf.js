@@ -36,12 +36,12 @@ $(function() {
     			}
     		);
     	// Start the live stream scanner when the modal opens
-    	$('#servicesEinkauf').on('shown.bs.modal', function (e) {
+    	$('.barcode-scan').on('shown.bs.modal', function (e) {
     		Quagga.init(
     			liveStreamConfig, 
     			function(err) {
     				if (err) {
-    					$('#servicesEinkauf .modal-body .error').html('<div class="alert alert-danger"><strong><i class="fa fa-exclamation-triangle"></i> '+err.name+'</strong>: '+err.message+'</div>');
+    					$('.barcode-scan .modal-body .error').html('<div class="alert alert-danger"><strong><i class="fa fa-exclamation-triangle"></i> '+err.name+'</strong>: '+err.message+'</div>');
     					Quagga.stop();
     					return;
     				}
@@ -96,7 +96,7 @@ $(function() {
 									
 									// a) display item in the list
 									
-									$('#einkaufResult').append(  '<li class="confirmedNote" id='+1+'>'+
+									$('.shopping-list').append(  '<li class="confirmedNote" id='+1+'>'+
 									 '<div class="row note">'+
 									 '<div class="col-md-2 col-2">'+
 									 '<div class="checkbox">'+
@@ -121,7 +121,7 @@ $(function() {
     	});
         
     	// Stop quagga in any case, when the modal is closed
-        $('#servicesEinkauf').on('hide.bs.modal', function(){
+        $('.barcode-scan').on('hide.bs.modal', function(){
         	if (Quagga){
         		Quagga.stop();	
         	}
@@ -133,7 +133,7 @@ $(function() {
     			liveStreamConfig, 
     			function(err) {
     				if (err) {
-    					$('#servicesEinkauf .modal-body .error').html('<div class="alert alert-danger"><strong><i class="fa fa-exclamation-triangle"></i> '+err.name+'</strong>: '+err.message+'</div>');
+    					$('.barcode-scan .modal-body .error').html('<div class="alert alert-danger"><strong><i class="fa fa-exclamation-triangle"></i> '+err.name+'</strong>: '+err.message+'</div>');
     					Quagga.stop();
     					return;
     				}

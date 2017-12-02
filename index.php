@@ -19,7 +19,6 @@
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="vendor/sweetalert/sweetalert2.min.css" rel="stylesheet">
     <link href="vendor/autocomplete/css/easy-autocomplete.css" rel="stylesheet">
-    <link href="vendor/autocomplete/css/easy-autocomplete.themes.css" rel="stylesheet">
     <script src="vendor/autocomplete/js/jquery.easy-autocomplete.js"></script>
     <script src="vendor/sweetalert/sweetalert2.min.js"></script>
     <script src="vendor/quagga/quagga.min.js"></script>
@@ -46,7 +45,7 @@
     <link href='http://fonts.googleapis.com/css?family=Vollkorn' rel='stylesheet' type='text/css'>
 
     <!-- Custom styles for this template -->
-    <link href="css/agency.min.css" rel="stylesheet">
+    <link href="css/agency.css" rel="stylesheet">
 
   </head>
 
@@ -767,7 +766,7 @@
 	</div>    
     
     <!-- Einkaufszettel schreiben -->
-    <div class="modal fade" id="servicesEinkaufszettel">
+    <div class="portfolio-modal modal fade" id="servicesEinkaufszettel">
 	  <div class="modal-dialog modal-lg" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -777,31 +776,39 @@
 	        </button>
 	      </div>
 	      <div class="modal-body" >
-			  <div class="receipt" style="padding-top: 0px; margin-top: 0px;">
-			    <ul class="shopping-list">
-			      <li class="new">
-			        <div class="row">
-			          <div class="col-md-6 col-6 item">
-			            <input type="text" placeholder="Was?" class="form-control shopping-note-input" id="item">
-			          </div>
-			          <div class="col-md-6 col-6 amount">
-			            <form>
-			            	<div class="input-group">
-  								 <input type="text" placeholder="Menge?" class="form-control shopping-note-input" id="amount">
-  								 <select style="border: none;" id='unit'>
-  								 	<option value="g">g</option>
-  								 	<option value="Stk">Stk</option>
-  								 </select>
-  								 <div class="shpping-note-button btn btn-primary" aria-hidden="true" id="addNote">
-  								 	<span class="fa fa-check " aria-hidden="true" style="text-align: center; line-height: 50%"></i>
-  								 </div>
-							</div>
-			            </form>
-			          </div>
-			        </div>
-			      </li>
-			    </ul>
-			  </div>
+	      	<div class="container-fluid" >
+	      		<div class="col-md-6" style="">
+					  <div class="receipt" style="padding-top: 0px; margin-top: 0px;">
+					    <ul class="shopping-list">
+					      <li class="new">
+					        <div class="row">
+					          <div class="col-md-6 col-6 item">
+					            <input type="text" placeholder="Was?" class="form-control shopping-note-input" id="item">
+					          </div>
+					          <div class="col-md-6 col-12 amount">
+					            <form>
+					            	<div class="input-group">
+		  								 <input type="text" placeholder="Menge?" class="form-control shopping-note-input" id="amount">
+		  								 <select style="border: none;" id='unit'>
+		  								 	<option value="g">g</option>
+		  								 	<option value="Stk">Stk</option>
+		  								 </select>
+		  								 <div class="shpping-note-button btn btn-primary" aria-hidden="true" id="addNote">
+		  								 	<span class="fa fa-check " aria-hidden="true" style="text-align: center; line-height: 50%"></i>
+		  								 </div>
+									</div>
+					            </form>
+					          </div>
+					        </div>
+					      </li>
+					    </ul>
+					  </div>
+				</div>
+				<div class="col-md-6">
+					<!-- Barcode Scanner Inputs -->
+					
+				</div>
+			</div>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-primary" style="vertical-align:middle;">Einkaufszettel anlegen<div class="loader"></div></button>

@@ -34,10 +34,11 @@
 
 .shopping-note-input {
 	height: 79px;
-	border: none;
+	border: none !important;
 	border-radius: 0;
 	font-size: 20pt;
 	padding: 0 20px;
+	min-width: 250px !important;
 }
 .shopping-note-button{
 	height: 79px;

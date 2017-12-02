@@ -7,6 +7,7 @@ $(function() {
     	var liveStreamConfig = {
     			inputStream: {
     				type : "LiveStream",
+    				target: $(".viewport"),
     				constraints: {
     					width: {min: 640},
     					height: {min: 480},

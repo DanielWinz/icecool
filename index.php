@@ -806,7 +806,7 @@
 				</div>
 				<div class="col-md-6">
 					<!-- Barcode Scanner Inputs -->
-				      	<div class="viewport  d-block mx-auto"></div>
+				      	<div id="" class="viewport  d-block mx-auto"></div>
 			    		<div class="row">
 			    			<div cass="error col-md-6 col-6"></div>
 			    			<div class="form-group col-md-6 col-6">

@@ -806,13 +806,7 @@
 				</div>
 				<div class="col-md-6">
 					<!-- Barcode Scanner Inputs -->
-					<div class="row">
-				      	<div id="interactive" class="col-md-6 col-6 viewport  d-block mx-auto"></div>
-				      	<div class="receipt col-md-6 col-6" style="padding-top: 0px; margin-top: 0px;">
-						    <ul class="shopping-list" id="einkaufResult">
-						    </ul>
-						  </div>
-			    		</div>
+				      	<div class="viewport  d-block mx-auto"></div>
 			    		<div class="row">
 			    			<div cass="error col-md-6 col-6"></div>
 			    			<div class="form-group col-md-6 col-6">

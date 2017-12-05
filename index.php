@@ -29,6 +29,7 @@
     <!-- eigene JavaScript Dateien -->
     <script src="js/services.js"></script>
     <script src="js/einkauf.js"></script>
+    <script src="js/barcodeEinkaufszettel.js"></script>
     
     <!-- eigene CSS Dateien -->
     <link href="css/einkaufszettel.css" rel="stylesheet">
@@ -732,7 +733,7 @@
     
     <!-- Einkauf anlegen -->
     
-    <div class="portfolio-modal modal fade" id="servicesEinkauf" tabindex="-1" role="dialog" class="barcode-scan" aria-hidden="true">
+    <div class="portfolio-modal modal fade" id="servicesEinkauf" tabindex="-1" role="dialog" aria-hidden="true">
 	  <div class="modal-dialog modal-lg" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -766,7 +767,7 @@
 	</div>    
     
     <!-- Einkaufszettel schreiben -->
-    <div class="portfolio-modal modal fade" id="servicesEinkaufszettel" class="barcode-scan">
+    <div class="portfolio-modal modal fade" id="servicesEinkaufszettel">
 	  <div class="modal-dialog modal-lg" role="document">
 	    <div class="modal-content">
 	      <div class="modal-header">
@@ -777,7 +778,7 @@
 	      </div>
 	      <div class="modal-body" >
 	      	<div class="container-fluid" >
-	      		<div class="col-md-6" style="">
+	      		<div class="col-md-5">
 					  <div class="receipt" style="padding-top: 0px; margin-top: 0px;">
 					    <ul class="shopping-list">
 					      <li class="new">
@@ -804,21 +805,20 @@
 					    </ul>
 					  </div>
 				</div>
-				<div class="col-md-6">
+				<div class="col-md-7">
 					<!-- Barcode Scanner Inputs -->
-				      	<div id="" class="viewport  d-block mx-auto"></div>
-			    		<div class="row">
+				      	<div id="interactive_zettel" class="viewport d-block mx-auto"></div>
+			    		<!-- <div class="row">
 			    			<div cass="error col-md-6 col-6"></div>
 			    			<div class="form-group col-md-6 col-6">
 			    				<input id="ean" type="number" class="form-control" placeholder="manuelle Eingabe">
 			    			</div>
-			    		</div>
-						<input type="file" accept="image/*" capture="camera">
-	        			<button type="button" class="btn btn-primary" id="servicesEinkaufButton">Neues Produkt</button>
+			    		</div> -->
 				</div>
 			</div>
 	      </div>
 	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" id="servicesEinkaufButton">Neues Produkt</button>
 	        <button type="button" class="btn btn-primary" style="vertical-align:middle;">Einkaufszettel anlegen<div class="loader"></div></button>
 	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Abbrechen</button>
 	      </div>

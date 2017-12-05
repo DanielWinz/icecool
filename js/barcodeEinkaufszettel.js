@@ -1,4 +1,12 @@
 /**
+ * @author wenzd
+ */
+
+/**
+ * @author wenzd
+ */
+
+ /**
  * Using the Quagga.js Library for detecting barcodes
  */
 
@@ -7,6 +15,7 @@ $(function() {
     	var liveStreamConfig = {
     			inputStream: {
     				type : "LiveStream",
+    				target: "#interactive_zettel",
     				constraints: {
     					width: {min: 640},
     					height: {min: 480},
@@ -36,7 +45,7 @@ $(function() {
     			}
     		);
     	// Start the live stream scanner when the modal opens
-    	$("#servicesEinkauf").on('shown.bs.modal', function (e) {
+    	$("#servicesEinkaufszettel").on('shown.bs.modal', function (e) {
     		console.log("in Init-Modus");
     		Quagga.init(
     			liveStreamConfig, 
@@ -122,7 +131,7 @@ $(function() {
     	});
         
     	// Stop quagga in any case, when the modal is closed
-        $("#servicesEinkauf").on('hide.bs.modal', function(){
+        $("#servicesEinkaufszettel").on('hide.bs.modal', function(){
         	console.log("in Hide-Modus");
         	if (Quagga){
         		Quagga.stop();	
@@ -146,3 +155,4 @@ $(function() {
 		});
 });
 
+ 

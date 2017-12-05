@@ -121,3 +121,24 @@
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* adding the part for the barcode scanner positioning */
+
+#interactive_zettel.viewport {
+	position: relative; 
+	width: 100%; 
+	height: auto; 
+	overflow: hidden; 
+	text-align: center;
+	}
+	
+#interactive_zettel.viewport > canvas, #interactive_zettel.viewport > video {
+	max-width: 100%;
+	width: 100%;
+	}
+	
+canvas.drawing, canvas.drawingBuffer {
+	position: absolute; 
+	left: 0; 
+	top: 0;
+	}
